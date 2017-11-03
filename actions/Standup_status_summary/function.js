@@ -1,12 +1,6 @@
 function(channel, ellipsis) {
-  const groupBy = require('group-by');
-const moment = require('moment-timezone');
-const getActionLogs = require('ellipsis-action-logs').get;
-
+  const moment = require('moment-timezone');
 const ActionLogs = require('action-logs')(channel, ellipsis);
-
-const from = moment.tz(new Date(), ellipsis.teamInfo.timeZone).subtract(4, 'day').toDate();
-
 const NO_RESPONSE = "_(no response yet)_";
 const todayStart = moment().tz(ellipsis.teamInfo.timeZone).startOf('day');
 
@@ -21,11 +15,7 @@ function whenFor(timestamp) {
  
 ActionLogs.questionLogs().then(askedByUser => {
   ActionLogs.answerLogs().then(answered => {
-    const results = answered.filter(ea => {
-      const lastAsked = askedByUser.find(eaAsked => eaAsked.user === ea.user);
-      const cutoff = lastAsked ? moment.min(moment(lastAsked.timestamp), todayStart) : todayStart;
-      return moment(ea.timestamp).isAfter(cutoff);
-    });
+    const results = ActionLogs.filterAnswersAfterLastAsked(answered, askedByUser);
     const answeredResults = results.map(ea => {
       return {
         user: ea.user,
@@ -47,5 +37,5 @@ ActionLogs.questionLogs().then(askedByUser => {
       timeZone: moment().tz(ellipsis.teamInfo.timeZone).format("z")
     });
   });
-})
+});
 }

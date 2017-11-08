@@ -26,10 +26,17 @@ function setUpAction(action, newTimeOfDay, useDM) {
   });
 }
 
-setUpAction("Check standup status", whenToAsk, true).
-  then((resp) => {
-    return setUpAction("Standup status summary", whenToDisplaySummary, false);
-  }).then((resp) => {
-    ellipsis.success("All done!")
-  });
+let askRecurrence, summaryRecurrence;
+setUpAction("Check standup status", whenToAsk, true).then((resp) => {
+  askRecurrence = resp.scheduled ? resp.scheduled.recurrence : null;
+  return setUpAction("Standup status summary", whenToDisplaySummary, false);
+}).then((resp) => {
+  summaryRecurrence = resp.scheduled ? resp.scheduled.recurrence : null;
+  ellipsis.success(
+`OK, I’ve set everything up.
+
+${askRecurrence ? `- I’ll send standup questions to each member of ${channel} ${askRecurrence}` : ""}
+${summaryRecurrence ? `- I’ll report the results ${summaryRecurrence}.` : ""}`
+  );
+});
 }

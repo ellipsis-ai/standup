@@ -27,6 +27,9 @@ function setUpAction(action, newTimeOfDay, useDM) {
 }
 
 setUpAction("Check standup status", whenToAsk, true).
-  then(() => setUpAction("Standup status summary", whenToDisplaySummary, false), ellipsis.error).
-  then(() => ellipsis.success("All done!"), ellipsis.error);
+  then((resp) => {
+    return setUpAction("Standup status summary", whenToDisplaySummary, false);
+  }).then((resp) => {
+    ellipsis.success("All done!")
+  });
 }

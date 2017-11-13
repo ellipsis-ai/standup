@@ -1,6 +1,6 @@
 function(channel, ellipsis) {
   const moment = require('moment-timezone');
-const ActionLogs = require('action-logs')(channel, ellipsis);
+const ActionLogs = require('action-logs')(ellipsis);
 const NO_RESPONSE = "_(no response yet)_";
 const todayStart = moment().tz(ellipsis.teamInfo.timeZone).startOf('day');
 
@@ -12,9 +12,11 @@ function whenFor(timestamp) {
     return inZone.format('h:mma on MMMM Do');
   }
 }
- 
-ActionLogs.questionLogs().then(askedByUser => {
-  ActionLogs.answerLogs().then(answered => {
+
+ActionLogs.logsFor('Check standup status', null, null, null, 'scheduled').then(allQuestionLogs => {
+  const askedByUser = ActionLogs.mostRecentPerUserInChannel(allQuestionLogs, channel);
+  ActionLogs.logsFor('Answer status questions').then(allAnswerLogs => {
+    const answered = ActionLogs.mostRecentPerUserInChannel(allAnswerLogs, channel);
     const results = ActionLogs.filterAnswersAfterLastAsked(answered, askedByUser);
     const answeredResults = results.map(ea => {
       return {

@@ -65,7 +65,7 @@
     "exportId" : "Text",
     "name" : "Text"
   },
-  "question" : "What is the most important thing for you to accomplish in your next workday?",
+  "question" : "What projects are you driving on and where are you blocked?",
   "isSavedForTeam" : false,
   "isSavedForUser" : false
 }, {
@@ -96,16 +96,6 @@
     "name" : "Text"
   },
   "question" : "For which channel?",
-  "isSavedForTeam" : false,
-  "isSavedForUser" : false
-}, {
-  "exportId" : "lHin7KDNSbitZjre4FYEqQ",
-  "name" : "yesterday",
-  "paramType" : {
-    "exportId" : "Text",
-    "name" : "Text"
-  },
-  "question" : "What did you do the last day you worked?",
   "isSavedForTeam" : false,
   "isSavedForUser" : false
 } ]

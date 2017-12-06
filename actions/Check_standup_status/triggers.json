@@ -1,20 +1,20 @@
 [ {
-  "text" : "standup check-in",
+  "text" : "simple standup check-in",
   "requiresMention" : true,
   "isRegex" : false,
   "caseSensitive" : false
 }, {
-  "text" : "standup checkin",
+  "text" : "simple standup checkin",
   "requiresMention" : true,
   "isRegex" : false,
   "caseSensitive" : false
 }, {
-  "text" : "standup check-in for {channel}",
+  "text" : "simple standup check-in for {channel}",
   "requiresMention" : true,
   "isRegex" : false,
   "caseSensitive" : false
 }, {
-  "text" : "standup checkin for {channel}",
+  "text" : "simple standup checkin for {channel}",
   "requiresMention" : true,
   "isRegex" : false,
   "caseSensitive" : false

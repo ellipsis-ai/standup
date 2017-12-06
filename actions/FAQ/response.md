@@ -10,7 +10,7 @@ Type `@ellipsis scheduled` in the standup channel
 Just ignore the questions or reply `...stop`. Ellipsis will leave you out of the status report (although you might get called a slacker).
 
 **How do I change my answers?**  
-Type `/dm @ellipsis standup checkin`. You can change your answers as many times as necessary before the status report is sent.
+Type `/dm @ellipsis simple standup checkin`. You can change your answers as many times as necessary before the status report is sent.
 
 **How do I add a new participant @some_new_user to the stand up?**  
 In your standup channel, type `/invite @some_new_user`
@@ -19,10 +19,10 @@ In your standup channel, type `/invite @some_new_user`
 Leave the standup channel. (In the standup channel, type `/leave`.)
 
 **How do I see who has checked in so far today?**  
-Type `/dm @ellipsis standup status`
+Type `/dm @ellipsis simple standup status`
 
 **How do I change the setup?**  
-Type `/dm @ellipsis setup standup`. You can run the setup as many time as you like.  
+Type `/dm @ellipsis setup simple standup`. You can run the setup as many time as you like.  
 
 **How do I get more help?**  
-For an introduction, type `/dm @ellipsis standup help`. To see the list of standup actions type `/dm @ellipsis help standup`.
+For an introduction, type `/dm @ellipsis simple standup help`. To see the list of standup actions type `/dm @ellipsis help simple standup`.

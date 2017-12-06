@@ -1,5 +1,5 @@
 [ {
-  "text" : "standup completion stats",
+  "text" : "simple standup completion stats",
   "requiresMention" : true,
   "isRegex" : false,
   "caseSensitive" : false

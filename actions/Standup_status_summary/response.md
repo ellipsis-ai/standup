@@ -7,10 +7,7 @@ Here's where everyone's at today (all times {successResult.timeZone}):
 
 **<@{userResult.user}> responded at {userResult.when}:** 
 
-**Yesterday:** {userResult.yesterday}  
-**Today's most important task:** {userResult.today}  
-**What else today:** {userResult.today2}  
-**Blockers:** {userResult.blockers}  
+**Current status:** {userResult.today}  
 
 {endfor}
 

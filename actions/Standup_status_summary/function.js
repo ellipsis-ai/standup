@@ -21,10 +21,7 @@ ActionLogs.logsFor('Check standup status', null, null, null, 'scheduled').then(a
     const answeredResults = results.map(ea => {
       return {
         user: ea.user,
-        yesterday: (ea.yesterday ? ea.yesterday : NO_RESPONSE),
         today: (ea.today ? ea.today : NO_RESPONSE),
-        today2: (ea.today2 ? ea.today2 : NO_RESPONSE),
-        blockers: (ea.blockers ? ea.blockers : NO_RESPONSE),
         when: whenFor(ea.timestamp)
       };
     });
